@@ -93,18 +93,6 @@ const theme = createTheme({
           textAlign: "justify",
           textIndent: "1rem"
         },
-        "tei-q:before, tei-quote:before": {
-          content: `"“"`
-        },
-        "tei-q:after tei-quote:after": {
-          content: `"”"`
-        },
-        "*[*|lang=fr] tei-q:before, *[*|lang=fr] tei-quote:before": {
-          content: `"«"`
-        },
-        "*[*|lang=fr] tei-q:after, *[*|lang=fr] tei-quote:after": {
-          content: `"»"`
-        },
         "tei-div": { // Make sure to only get div/div and no other div
           display: "block",
           marginTop: "1rem",
@@ -309,7 +297,7 @@ const theme = createTheme({
       main: "#E3DCD4",
     },
     background: {
-      default: "#fff",
+      default: "#fcf9f8",
     },
   },
   breakpoints: {

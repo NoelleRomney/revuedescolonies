@@ -47,37 +47,37 @@ module.exports = {
         },
         fr: {
           name: 'accueil',
-          link: '/fr'
+          link: '/fr/'
         }
       },
       {
         en: {
           name: 'about',
-          link: '/en/about'
+          link: '/en/about/'
         },
         fr: {
           name: 'à propos',
-          link: '/fr/àpropos'
+          link: '/fr/àpropos/'
         }
       },
       {
         en: {
           name: 'people',
-          link: '/en/people'
+          link: '/en/people/'
         },
         fr: {
           name: 'équipe',
-          link: '/fr/équipe'
+          link: '/fr/équipe/'
         }
       },
       {
         en: {
           name: 'edition',
-          link: '/en/toc'
+          link: '/en/toc/'
         },
         fr: {
           name: 'édition',
-          link: '/fr/sommaire'
+          link: '/fr/sommaire/'
         }
       }
     ]
@@ -85,6 +85,22 @@ module.exports = {
   plugins: [
     `gatsby-plugin-emotion`,
     `gatsby-plugin-material-ui`,
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-38Y0J0NHJY"
+        ],
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: true
+        },
+        gtagConfig: {
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+      },
+    },
     {
       resolve: `gatsby-theme-ceteicean`,
       options: {
@@ -114,14 +130,25 @@ module.exports = {
       },
     },
     {
-          resolve: `gatsby-source-filesystem`,
-          options: {
-            name: `pages`,
-            path: `${__dirname}/src/contents`,
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/contents`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 5000,
+            },
           },
-        },
-      
-    `gatsby-transformer-remark`,
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

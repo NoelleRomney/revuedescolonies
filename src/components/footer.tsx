@@ -6,16 +6,28 @@ import { Box } from "@mui/material"
 import umd from "../images/umd-logo.png"
 import fme from "../images/fme.png"
 import Schomburg from "../images/Schomburg.jpg"
+import MITH from "../images/MITHgrayscale.png"
+import BSA from "../images/BSA.png"
+import Gallica from "../images/Gallica.png"
+import nhprc from "../images/nhprc-logo.png"
+import acls from "../images/acls.png"
 
 const styles = {
   footer: {
-    backgroundColor: "#f6f4f2",
-    padding: "1rem 0",
-    borderTop: "1px solid #dadada",
+    backgroundColor: "#fff",
+    padding: "2rem 0",
+    borderTop: "2px solid #dadada",
     fontSize: "1rem"
   },
-  logo: {
-    textAlign: "right",
+  logos: {
+    display: "flex",
+    justifyContent: "center",
+    gap: "2em",
+    flexFlow: "wrap",
+    "& a": {
+      display: "flex",
+      alignSelf: "center"
+    }
   }
 }
 
@@ -25,55 +37,76 @@ interface Props {
 
 const Footer = ({repository} : Props) => (
   <Box component="footer" sx={styles.footer}>
-    <Container maxWidth="lg">
-      <Grid container={true}>
-        <Grid item={true} xs={8}>
-          <a
-            rel="license"
-            href="http://creativecommons.org/licenses/by-nc-sa/3.0/"
-          >
-            <img
-              alt="Creative Commons License"
-              src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"
-            />
-          </a>
-          <br />
-          This work is licensed under a{" "}
-          <a
-            rel="license"
-            href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-          >
-            Creative Commons Attribution-NonCommercial-ShareAlike 4.0
-            International License
-          </a>
-          . 
-          <br /> The open source code for this edition is available at <a href={repository}>{repository}</a>.
-          <br /> © {new Date().getFullYear()} University of Maryland.
-        </Grid>
-        <Grid item={true} xs={4} sx={{ display: "flex", justifyContent: "flex-end" }}>
-        <a href="https://www.nypl.org/locations/schomburg" style={{ marginRight: "1rem" }}>
-            <img
-              width={280}
-              src={`${Schomburg}`}
-              alt="Logo of the Schomburg Center"
-            />
-          </a>
-  <a href="https://memoire-esclavage.org/fme" style={{ marginRight: "1rem" }}>
-            <img
-              width={90}
-              src={`${fme}`}
-              alt="Logo of the FME"
-            />
-            </a>
+    <Container maxWidth="md" sx={styles.logos}>
+          <Box sx={{display: "flex", flexDirection: "column"}}>
+            <a
+              rel="license"
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0"
+              style={{alignSelf: "unset", display: "inline"}}
+            >
+              <img
+                alt="Creative Commons License"
+                src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"
+              />
+            </a>        
+            <a href="https://www.bnf.fr/fr/gallica-la-bibliotheque-numerique-de-la-bnf-et-de-ses-partenaires"
+              style={{alignSelf: "unset", display: "inline"}}>
+              <img
+                style={{maxWidth: "125px"}}
+                src={`${Gallica}`}
+                alt="Logo of Gallica, la Bibliothèque numérique de la BnF"
+              />
+            </a> 
+          </Box> 
           <a href="https://umd.edu">
             <img
-              width={90}
+              width={65}
               src={`${umd}`}
               alt="Logo of the University of Maryland"
             />
           </a>
-        </Grid>
-      </Grid>
+          <a href="https://mith.umd.edu/"> 
+            <img
+              width={65}
+              src={`${MITH}`}
+              alt="Logo of the Maryland Institute for Technology in the Humanities"
+            />
+          </a>
+            <a href="https://bibsocamer.org/">
+            <img
+              width={65}
+              src={`${BSA}`}
+              alt="Logo of the Bibliographical Society of America"
+            />
+            </a>
+            <a href="https://memoire-esclavage.org/fme">
+            <img
+              width={65}
+              src={`${fme}`}
+              alt="Logo of the FME"
+            />
+            </a>
+            <a href="https://www.archives.gov/nhprc">
+            <img
+              width={65}
+              src={`${nhprc}`}
+              alt="Logo of the NHPRC"
+            />
+            </a>
+            <a href="https://acls.org">
+            <img
+              width={150}
+              src={`${acls}`}
+              alt="Logo of the ACLS"
+            />
+            </a>
+            <a href="https://www.nypl.org/locations/schomburg">
+              <img
+                width={360}
+                src={`${Schomburg}`}
+                alt="Logo of the Schomburg Center"
+              />
+          </a>  
     </Container>
   </Box>
 )
